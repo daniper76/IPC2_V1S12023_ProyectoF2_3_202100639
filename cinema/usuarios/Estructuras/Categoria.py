@@ -2,7 +2,6 @@ from .ListaPeliculasDC import ListaDobleCircular
 
 class Categoria:
     id=1
-
     def __init__(self,nombre):
         self.nombre=nombre
         self.lista_peliculas=ListaDobleCircular()
