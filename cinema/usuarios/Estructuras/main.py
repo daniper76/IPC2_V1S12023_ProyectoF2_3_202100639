@@ -1,14 +1,13 @@
-from Categorias.ListaCategorias import ListaCategorias
-from Usuarios.ListaSimple import ListaSimple
-from Salas.ListaDoble import ListaDoble
-from LecturaArchivo import*
-from Usuarios.Factura import Factura 
+from .ListaCategorias import ListaCategorias
+from .ListaSimple import ListaSimple
+from .ListaDoble import ListaDoble
+from .LecturaArchivo import*
+from .Factura import Factura 
 flag=True
 usuarios=ListaSimple()
 usuarios.InsertarUsuario("Daniel","Peuch","37324046","danper76@ipc2.com","password","Administrador")
 categorias=ListaCategorias()
 salas=ListaDoble()
-
 while flag:
     print('***************Bienvenido********************')
     print('---------------Menú---------------')
