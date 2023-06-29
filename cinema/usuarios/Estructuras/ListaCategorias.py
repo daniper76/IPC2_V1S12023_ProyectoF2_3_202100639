@@ -31,7 +31,7 @@ class ListaCategorias:
             print("\t*"+str(aux.ObtenerNombre()))
             aux=aux.siguiente
             
-    
+
     def EliminarCategoria(self,nombre):
 
         self.ExistenciaCategoria()
@@ -193,6 +193,23 @@ class ListaCategorias:
             aux=aux.siguiente
         return False
 
+    def DevolverALLMovies(self):
+        aux=self.primero
+        cartelera=[]
+        while aux is not None:
+            cartelera=aux.ObtenerListaPeliculas().DevolverPeliculasAll(cartelera)
+            aux=aux.siguiente
+        return cartelera
+    
+    def DevolverAllCategorias(self):
+        aux=self.primero
+        lista_categorias=[]
+        while aux is not None:
+            lista_categorias.append(aux.ObtenerNombre())
+            aux=aux.siguiente
+        return lista_categorias
+            
+    
 
 
             

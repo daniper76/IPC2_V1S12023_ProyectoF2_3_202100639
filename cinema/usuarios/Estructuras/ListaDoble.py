@@ -24,9 +24,18 @@ class ListaDoble:
             print("\tNúmero de Asientos: "+str(aux.ObtenerAsientos())+"\n")
             aux=aux.siguiente
 
+    def loop(self):
+        aux=self.primero
+        while aux:
+            yield aux
+            aux = aux.siguiente
+
+    def __iter__(self):
+        return iter(self.loop())
+
     def eliminar(self,numero):
         if self.primero is None:
-             print("la lista esta vacia")
+            print("la lista esta vacia")
         else:
             aux = self.primero
             while aux is not None:

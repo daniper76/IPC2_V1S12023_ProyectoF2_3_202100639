@@ -202,6 +202,15 @@ class ListaSimple:
             print('\t***'+str(aux.ObtenerCorreo()))
             aux=aux.siguiente            
 
+    def loop(self):
+        aux = self.primero
+        while aux:
+            yield aux
+            aux=aux.siguiente
+
+
+    def __iter__(self):
+        return iter(self.loop())
 
             
 

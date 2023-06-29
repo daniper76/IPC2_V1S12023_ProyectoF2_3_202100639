@@ -1,0 +1,14 @@
+<cines>
+	<cine>
+		<salas>
+			<sala>
+				<numero>#USACIPC2_202212333_2</numero>
+				<asientos>80</asientos>
+			</sala>
+			<sala>
+				<numero>#USACIPC2_202212333_3</numero>
+				<asientos>120</asientos>
+			</sala>
+		</salas>
+	</cine>
+</cines>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+        <title>Gestion Peliculas</title>
+        <link rel="stylesheet" href="{% static 'css/tabla.css' %}" >
+        <link rel="stylesheet" href="{% static 'css/divCarrusel.css' %}" >
+    </head>
+    <body>
+        <form method="POST" action="{% url 'cargar_xml' %}">
+            {% csrf_token %}
+            <button type="submit">Cargar XML</button>
+        </form>
+
+        <form method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
+            <button type="submit">Login</button>
+        </form>
+
+        <form method="POST" action="{% url 'filtrar_img' %}">
+            {% csrf_token %}
+            <select name="categoria">
+                <option value="">Todas las categorías</option>
+                {% for categoria in categorias %}
+                <option value="{{ categoria }}">{{ categoria }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Filtrar">
+        </form>
+        
+        {% for filtrado in filtrados %}
+        <div class="carta">
+            <h3>{{ filtrado.titulo }}</h3>
+            <p>{{ filtrado.director }}</p>
+            <img src="{{ filtrado.imagen }}" alt="{{ filtrado.titulo }}">
+        </div>
+        {% empty %}
+        <p>No hay películas disponibles.</p>
+        {% endfor %}
+        
+
+
+
+
+        <h1>Lista de Usuarios</h1>
+        <table>
+            <thead>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Telefono</th>
+                <th>Correo</th>
+                <th>Contrasenia</th>
+                <th>Id</th>
+                <th>Rol</th>
+            </thead>
+            <tbody>
+                {% for usuario in usuarios %}
+                <tr>
+                    <td>{{ usuario.nombre }}</td>
+                    <td>{{ usuario.apellido }}</td>
+                    <td>{{ usuario.telefono }}</td>
+                    <td>{{ usuario.correo }}</td>
+                    <td>{{ usuario.contrasenia }}</td>
+                    <td>{{ usuario.id }}</td>
+                    <td>{{ usuario.rol }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td>No existen registros</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h1>Lista de Peliculas</h1>
+        <table>
+            <thead>
+                <th>Titulo</th>
+                <th>Director</th>
+                <th>Anio</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Id</th>
+                <th>Categoria</th>
+            </thead>
+            <tbody>
+                {% for pelicula in peliculas %}
+                <tr>
+                    <td>{{ pelicula.titulo }}</td>
+                    <td>{{ pelicula.director }}</td>
+                    <td>{{ pelicula.anio }}</td>
+                    <td>{{ pelicula.fecha }}</td>
+                    <td>{{ pelicula.hora }}</td>
+                    <td>{{ pelicula.id }}</td>
+                    <td>{{ pelicula.categoria }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td>No existen registros</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h1>Lista de Salas</h1>
+        <table>
+            <thead>
+                <th>Numero</th>
+                <th>Asiento</th>
+                <th>Id</th>
+            </thead>
+            <tbody>
+                {% for sala in salas %}
+                <tr>
+                    <td>{{ sala.numero }}</td>
+                    <td>{{ sala.asientos }}</td>
+                    <td>{{ sala.id }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td>No existen registros</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h1>Lista de Tarjetas</h1>
+        <table>
+            <thead>
+                <th>Tipo</th>
+                <th>Numero</th>
+                <th>Titular</th>
+                <th>Fecha Vencimiento</th>
+            </thead>
+            <tbody>
+                {% for tarjeta in tarjetas %}
+                <tr>
+                    <td>{{ tarjeta.tipo }}</td>
+                    <td>{{ tarjeta.numero }}</td>
+                    <td>{{ tarjeta.titular }}</td>
+                    <td>{{ tarjeta.fecha }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td>No existen registros</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+
+        <div class="carousel">
+            {% for pelicula in peliculas %}
+            <img src="{{ pelicula.imagen }}" alt="Imagen 1" class="active">
+            {% endfor %}
+            <div class="carousel-btn left" onclick="prevImage()">&lt;</div>
+            <div class="carousel-btn right" onclick="nextImage()">&gt;</div>
+          </div>
+        
+        <script>
+            var carousel = document.querySelector('.carousel');
+            var images = carousel.querySelectorAll('img');
+            var currentIndex = 0;
+        
+            function showImage(index) {
+              for (var i = 0; i < images.length; i++) {
+                images[i].classList.remove('active');
+              }
+              images[index].classList.add('active');
+            }
+        
+            function prevImage() {
+              currentIndex--;
+              if (currentIndex < 0) {
+                currentIndex = images.length - 1;
+              }
+              showImage(currentIndex);
+            }
+        
+            function nextImage() {
+              currentIndex++;
+              if (currentIndex >= images.length) {
+                currentIndex = 0;
+              }
+              showImage(currentIndex);
+            }
+          </script>
+    </body>
+</html>
