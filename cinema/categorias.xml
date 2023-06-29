@@ -1,0 +1,148 @@
+<categorias>
+	<categoria>
+		<nombre>Acción</nombre>
+		<peliculas>
+			<pelicula>
+				<titulo>Avengers: Endgame</titulo>
+				<director>Joe Russo, Anthony Russo</director>
+				<anio>2019</anio>
+				<fecha>2023-06-05</fecha>
+				<hora>18:30</hora>
+				<imagen>https://lumiere-a.akamaihd.net/v1/images/p_avengersendgame_19751_e14a0104.jpeg?region=0%2C0%2C540%2C810</imagen> 
+        		<precio>45</precio>
+			</pelicula>
+			<pelicula>
+				<titulo>John Wick</titulo>
+				<director>Chad Stahelski</director>
+				<anio>2014</anio>
+				<fecha>2023-06-06</fecha>
+				<hora>20:00</hora>
+				<imagen>https://m.media-amazon.com/images/M/MV5BMTU2NjA1ODgzMF5BMl5BanBnXkFtZTgwMTM2MTI4MjE@._V1_FMjpg_UX1000_.jpg</imagen> 
+        		<precio>45</precio>
+			</pelicula>
+			<pelicula>
+				<titulo>Misión Imposible: Fallout</titulo>
+				<director>Christopher McQuarrie</director>
+				<anio>2018</anio>
+				<fecha>2023-06-07</fecha>
+				<hora>19:15</hora>
+				<imagen>https://pics.filmaffinity.com/Misiaon_imposible_Fallout-180739766-mmed.jpg</imagen> 
+        		<precio>45</precio>
+			</pelicula>
+		</peliculas>
+	</categoria>
+	<categoria>
+		<nombre>Comedia</nombre>
+		<peliculas>
+			<pelicula>
+				<titulo>Superbad</titulo>
+				<director>Greg Mottola</director>
+				<anio>2007</anio>
+				<fecha>2023-06-06</fecha>
+				<hora>21:00</hora>
+				<imagen>https://m.media-amazon.com/images/M/MV5BY2VkMDg4ZTYtN2M3Yy00NWZiLWE2ODEtZjU5MjZkYWNkNGIzXkEyXkFqcGdeQXVyODY5Njk4Njc@._V1_FMjpg_UX1000_.jpg</imagen> 
+        		<precio>45</precio>
+			</pelicula>
+			<pelicula>
+				<titulo>Bridesmaids</titulo>
+				<director>Paul Feig</director>
+				<anio>2011</anio>
+				<fecha>2023-06-07</fecha>
+				<hora>20:15</hora>
+				<imagen>https://m.media-amazon.com/images/M/MV5BMjAyOTMyMzUxNl5BMl5BanBnXkFtZTcwODI4MzE0NA@@._V1_.jpg</imagen> 
+        		<precio>45</precio>
+			</pelicula>
+		</peliculas>
+	</categoria>
+	<categoria>
+		<nombre>Musical</nombre>
+		<peliculas>
+			<pelicula>
+				<titulo>La la land</titulo>
+				<director>Damien Chazelle</director>
+				<anio>2016</anio>
+				<fecha>2023-06-06</fecha>
+				<hora>21:00</hora>
+				<imagen>https://pics.filmaffinity.com/La_ciudad_de_las_estrellas_La_La_Land-262021831-mmed.jpg</imagen> 
+        		<precio>45</precio>
+			</pelicula>
+			<pelicula>
+				<titulo>Baile Caliente</titulo>
+				<director>Emile Ardolino</director>
+				<anio>2011</anio>
+				<fecha>2023-06-07</fecha>
+				<hora>20:15</hora>
+				<imagen>https://images-na.ssl-images-amazon.com/images/S/pv-target-images/0dc335178e83ede953cc929998f9b6804a00fef208574abb262bf39cc6a36139._RI_TTW_.jpg</imagen> 
+        		<precio>45</precio>
+			</pelicula>
+		</peliculas>
+	</categoria>
+	<categoria>
+		<nombre>Drama</nombre>
+		<peliculas>
+			<pelicula>
+				<titulo>El padrino</titulo>
+				<director>Damien Chazelle</director>
+				<anio>2016</anio>
+				<fecha>2023-06-06</fecha>
+				<hora>21:00</hora>
+				<imagen>https://cdn.sincroguia.tv/uploads/programs/e/l/-/el-padrino-poster-2981_SPA-17_V.jpg</imagen> 
+        		<precio>45</precio>
+			</pelicula>
+			<pelicula>
+				<titulo>Lo que el viento se llevo</titulo>
+				<director>Emile Ardolino</director>
+				<anio>2011</anio>
+				<fecha>2023-06-07</fecha>
+				<hora>20:15</hora>
+				<imagen>https://cadenaser00.epimg.net/ser/imagenes/2008/08/27/cultura/1219792629_740215_0000000000_noticia_normal.jpg</imagen> 
+        		<precio>45</precio>
+			</pelicula>
+			<pelicula>
+				<titulo>El Ciudadano Kane</titulo>
+				<director>Emile Ardolino</director>
+				<anio>2011</anio>
+				<fecha>2023-06-07</fecha>
+				<hora>20:15</hora>
+				<imagen>https://es.web.img3.acsta.net/pictures/14/02/13/13/45/093063.jpg</imagen> 
+        		<precio>45</precio>
+			</pelicula>
+			<pelicula>
+				<titulo>La lista de Schindler</titulo>
+				<director>Emile Ardolino</director>
+				<anio>2011</anio>
+				<fecha>2023-06-07</fecha>
+				<hora>20:15</hora>
+				<imagen>https://es.web.img3.acsta.net/pictures/19/02/12/18/49/4078948.jpg</imagen> 
+        		<precio>45</precio>
+			</pelicula>
+			<pelicula>
+				<titulo>Taxi Driver </titulo>
+				<director>Emile Ardolino</director>
+				<anio>2011</anio>
+				<fecha>2023-06-07</fecha>
+				<hora>20:15</hora>
+				<imagen>https://m.media-amazon.com/images/M/MV5BM2M1MmVhNDgtNmI0YS00ZDNmLTkyNjctNTJiYTQ2N2NmYzc2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UX1000_.jpg</imagen> 
+        		<precio>45</precio>
+			</pelicula>
+			<pelicula>
+				<titulo>Rescatando al soldado Ryan</titulo>
+				<director>Emile Ardolino</director>
+				<anio>2011</anio>
+				<fecha>2023-06-07</fecha>
+				<hora>20:15</hora>
+				<imagen>https://es.web.img3.acsta.net/pictures/14/03/05/09/42/163621.jpg</imagen> 
+        		<precio>45</precio>
+			</pelicula>
+			<pelicula>
+				<titulo>La semilla del diablo</titulo>
+				<director>Roman Polanski</director>
+				<anio>1968</anio>
+				<fecha>2023-06-07</fecha>
+				<hora>20:45</hora>
+				<imagen>https://es.web.img3.acsta.net/medias/nmedia/18/72/16/42/20373258.jpg</imagen> 
+        		<precio>45</precio>
+			</pelicula>
+		</peliculas>
+	</categoria>
+</categorias>

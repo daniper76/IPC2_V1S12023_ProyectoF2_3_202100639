@@ -6,8 +6,8 @@ class ListaDobleCircular:
         self.primero=None
         self.ultimo=None
 
-    def InsertarPelicula(self,titulo,director,anio,fecha,hora):
-        nueva_pelicula=Pelicula(titulo,director,anio,fecha,hora)
+    def InsertarPelicula(self,titulo,director,anio,fecha,hora,imagen,precio):
+        nueva_pelicula=Pelicula(titulo,director,anio,fecha,hora,imagen,precio)
 
         if self.primero is None:
             nueva_pelicula.siguiente=nueva_pelicula
@@ -47,7 +47,7 @@ class ListaDobleCircular:
     
     def EliminarPelicula(self,titulo):
         if self.primero is None:
-             print("la lista esta vacia")
+            print("la lista esta vacia")
         else:
             aux = self.primero
             while aux is not None:
@@ -175,6 +175,16 @@ class ListaDobleCircular:
             if aux==self.primero:
                 texto_peli=texto_peli+"\t\t</peliculas>\n"
                 return texto_peli
+
+
+    def DevolverPeliculasAll(self, lista: list):
+        aux=self.primero
+        
+        while True:
+            lista.append(aux)
+            aux=aux.siguiente
+            if aux==self.primero:
+                return lista
 
 
 

@@ -1,0 +1,18 @@
+<usuarios>
+	<usuario>
+		<rol>Administrador</rol>
+		<nombre>Daniel</nombre>
+		<apellido>Peruch</apellido>
+		<telefono>37324046</telefono>
+		<correo>danper76@ipc2.com</correo>
+		<contrasena>password</contrasena>
+	</usuario>
+	<usuario>
+		<rol>cliente</rol>
+		<nombre>yo</nombre>
+		<apellido>Smith</apellido>
+		<telefono>987654321</telefono>
+		<correo>jane.smith@example.com</correo>
+		<contrasena>password456</contrasena>
+	</usuario>
+</usuarios>
