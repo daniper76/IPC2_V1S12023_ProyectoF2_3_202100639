@@ -176,6 +176,7 @@ class ListaDobleCircular:
                 texto_peli=texto_peli+"\t\t</peliculas>\n"
                 return texto_peli
 
+
     def DevolverPeliculasAll(self, lista: list):
         aux=self.primero
         
