@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Historial</title>
+    </head>
+    <body>
+        <h1>Elegir Favoritos</h1>
+
+        <form method="POST" action="{% url 'guardar_favoritos' %}">
+            {% csrf_token %}
+
+            {% for pelicula in peliculas %}
+                <input type="radio" name="pelicula" value="{{ pelicula.titulo }}">{{ pelicula.titulo }}<br>
+            {% endfor %}
+            <button type="submit">Seleccionar</button>
+        </form>
+    </body>
+</html>

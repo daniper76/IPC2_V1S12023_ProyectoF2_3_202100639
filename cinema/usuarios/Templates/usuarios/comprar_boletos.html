@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>Comprar Boletos</head>
+    <body>
+        <h1>Comprar Boletos</h1>
+
+        <form method="POST" action="{% url 'realizar_compra' %}">
+            {% csrf_token %}
+
+            {% for pelicula in peliculas %}
+                <input type="radio" name="pelicula" value="{{ pelicula.titulo }}">{{ pelicula.titulo }}<br>
+            {% endfor %}
+                
+            {% for sala in salas %}
+                <input type="radio" name="sala" value="{{ sala.numero }}">{{ sala.numero }}<br>
+            {% endfor %}
+
+            {% for pago in pagos %}
+                <input type="radio" name="pago" value="{{ pago }}">{{ pago }}<br>
+            {% endfor %}
+            
+            <label for="nombre">nombre</label>
+            <input type="text" name="nombre" required>
+            <br>
+            <label for="nit">nit</label>
+            <input type="text" name="nit" required>
+            <br>
+            <label for="direccion">Direccion</label>
+            <input type="text" name="direccion" required>
+            <br>
+            <label for="cantidad">Cantidad de Boletos</label>
+            <input type="text" name="cantidad" required>
+            <br>
+            <label for="asientos">Numero de Asientos</label>
+            <input type="text" name="asientos" required>
+            <button type="submit">Comprar</button>
+        </form>
+    </body>
+</html>

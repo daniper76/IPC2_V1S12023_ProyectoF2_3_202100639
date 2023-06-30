@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Historial</title>
+    </head>
+    <body>
+        <form method="POST" action="{% url 'regresar_menucliente' %}">
+            {% csrf_token %}
+            <button type="submit">Regresar Menu</button>
+        </form>
+        <h1>Historial</h1>
+        {% for factura in facturas %}
+        <table>
+            <thead>
+                <th>Número de Factura</th>
+                <th>Nombre</th>
+                <th>Nit</th>
+                <th>Direccion</th>
+                <th>Cantidad de Boletos</th>
+                <th>Número de Asientos</th>
+                <th>Pelicula</th>
+                <th>Sala de la Función</th>
+                <th>Monto</th>
+                <th>Tipo de Pago</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ factura.boleto }}</td>
+                    <td>{{ factura.nombre }}</td>
+                    <td>{{ factura.nit }}</td>
+                    <td>{{ factura.direccion }}</td>
+                    <td>{{ factura.cantidad_boletos }}</td>
+                    <td>{{ factura.asientos }}</td>
+                    <td>{{ factura.pelicula }}</td>
+                    <td>{{ factura.sala }}</td>
+                    <td>{{ factura.monto }}</td>
+                    <td>{{ factura.pago }}</td>
+                </tr>    
+            </tbody>
+        </table>
+        {% empty %}
+            <table>
+                <tr>
+                    <td>No existen registros</td>
+                </tr>
+            </table>
+        {% endfor %}
+    </body>
+</html>

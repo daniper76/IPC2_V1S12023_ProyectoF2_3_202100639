@@ -1,12 +1,10 @@
-from .Peli import Pelicula
-class ListaDobleCircularPeliculas:
+class ListaDobleCircularPeliculasFavoritas:
 
     def __init__(self):
         self.primero=None
         self.ultimo=None
 
-    def InsertarPelicula(self,titulo,director,anio,fecha,hora,categoria,imagen,precio):
-        nueva_pelicula=Pelicula(titulo,director,anio,fecha,hora,categoria,imagen,precio)
+    def InsertarPelicula(self,nueva_pelicula):
 
         if self.primero is None:
             nueva_pelicula.siguiente=nueva_pelicula
@@ -21,21 +19,7 @@ class ListaDobleCircularPeliculas:
             self.primero.anterior=nueva_pelicula
             self.ultimo=nueva_pelicula
         
-    def MostrarPeliculas(self):
-        aux=self.primero
 
-        while True:
-            print("------------------------------------------------------")
-            print("\tTítulo de la Pelicula: "+aux.ObtenerTitulo())
-            print("\t\tPelicula dirigida por: "+aux.ObtenerDirector())
-            print("\t\tEl año del estreno de la Película es: "+aux.ObtenerAnio())
-            print("\t\tFecha de la Función: "+aux.ObtenerFecha())
-            print("\t\tHora de la Función"+aux.ObtenerHora())
-            print("\t\tCategoría de la Función"+aux.ObtenerCategoria())
-            print("-------------------------------------------------------------")
-            aux=aux.siguiente
-            if aux==self.primero:
-                break
     
     def NuevaPelicula(self,titulo):
         aux=self.primero
@@ -149,31 +133,6 @@ class ListaDobleCircularPeliculas:
                 break
 
     
-    def MostrarDetallePelicula(self,titulo):
-        aux=self.primero
-
-        while True:
-            if aux.ObtenerTitulo()==titulo:
-                print("\tTítulo de la Pelicula: "+aux.ObtenerTitulo())
-                print("\tPelicula dirigida por: "+aux.ObtenerDirector())
-                print("\tEl año del estreno de la Película es: "+aux.ObtenerAnio())
-                print("\tFecha de la Función: "+aux.ObtenerFecha())
-                print("\tHora de la Función"+aux.ObtenerHora())
-                print("\tCategoria de la Función"+aux.ObtenerCategoria())
-                break
-            aux=aux.siguiente
-            if aux==self.primero:
-                break
-
-    def MostrarCartelera(self):
-        aux=self.primero
-
-        while True:
-            print("\t***"+aux.ObtenerTitulo())
-            aux=aux.siguiente
-            if aux==self.primero:
-                break
-    
     def DevolverPelicula(self,titulo):
         aux=self.primero
         while aux is not None:
@@ -193,21 +152,6 @@ class ListaDobleCircularPeliculas:
             if aux==self.primero:
                 return None
 
-    def EscribirXML(self):
-        aux=self.primero
-        texto_peli="\t\t<peliculas>\n"
-        while True:
-            texto_peli=texto_peli+"\t\t\t<pelicula>\n"
-            texto_peli=texto_peli+"\t\t\t\t<titulo>"+str(aux.ObtenerTitulo())+"</titulo>\n"
-            texto_peli=texto_peli+"\t\t\t\t<director>"+str(aux.ObtenerDirector())+"</director>\n"
-            texto_peli=texto_peli+"\t\t\t\t<anio>"+str(aux.ObtenerAnio())+"</anio>\n"
-            texto_peli=texto_peli+"\t\t\t\t<fecha>"+str(aux.ObtenerFecha())+"</fecha>\n"
-            texto_peli=texto_peli+"\t\t\t\t<hora>"+str(aux.ObtenerHora())+"</hora>\n"
-            texto_peli=texto_peli+"\t\t\t</pelicula>\n"
-            aux=aux.siguiente
-            if aux==self.primero:
-                texto_peli=texto_peli+"\t\t</peliculas>\n"
-                return texto_peli
 
     def loop(self):
         aux = self.primero
@@ -253,10 +197,3 @@ class ListaDobleCircularPeliculas:
             aux=aux.siguiente
             if aux==self.primero:
                 break
-
-            
-
-            
-
-
-

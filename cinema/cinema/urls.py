@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from usuarios.views import cargar_xml,filtrar_img,login,menu_cliente,menu_admin,actualizar_usuario,eliminar_usuario,crear_usuario,crear_pelicula,eliminar_pelicula,actualizar_pelicula,crear_sala,actualizar_sala,eliminar_sala,crear_tarjeta,actualizar_tarjeta,eliminar_tarjeta,volver_admin,volver_login
+from usuarios.views import cargar_xml,filtrar_img,login,menu_cliente,menu_admin,actualizar_usuario,eliminar_usuario,crear_usuario,crear_pelicula,eliminar_pelicula,actualizar_pelicula,crear_sala,actualizar_sala,eliminar_sala,crear_tarjeta,actualizar_tarjeta,eliminar_tarjeta,volver_admin,volver_login,comprar_boletos,realizar_compra,ver_historial,regresar_menucliente,favoritos,guardar_favoritos,ver_favoritos
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -38,5 +38,12 @@ urlpatterns = [
     path('mero/tarjeta/actualizar/<str:titular>/', actualizar_tarjeta, name='actualizar_tarjeta'),
     path('mero/tarjeta/eliminar/<str:titular>/', eliminar_tarjeta, name='eliminar_tarjeta'),
     path('mero/volver/', volver_admin, name='volver_admin'),
-    path('mero/regresar/login/', volver_login, name='volver_login')
+    path('mero/regresar/login/', volver_login, name='volver_login'),
+    path('clienteu/comprar/',comprar_boletos,name='comprar_boletos'),
+    path('clienteu/realizar/',realizar_compra,name='realizar_compra'),
+    path('clienteu/historial/',ver_historial,name='ver_historial'),
+    path('clienteu/regresarmenu/',regresar_menucliente,name='regresar_menucliente'),
+    path('clienteu/favoritos/',favoritos,name='favoritos'),
+    path('clienteu/favoritos/guardar/',guardar_favoritos,name='guardar_favoritos'),
+    path('clienteu/favoritos/ver/',ver_favoritos,name='ver_favoritos')
 ]
