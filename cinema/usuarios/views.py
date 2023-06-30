@@ -7,6 +7,7 @@ from .Estructuras.ListaCategorias import ListaCategorias
 from .Estructuras.ListaPeliculas import ListaDobleCircularPeliculas
 from .Estructuras.ListaDobleTarjetas import ListaDobleTarjetas
 from .Estructuras.ListaUsuarioActual import LSUsuario
+import requests
 
 # Create your views here.
 global lista_usuarios
@@ -36,6 +37,46 @@ def cargar_xml(request):
         LectuuraSalas(archivo_salas,lista_salas)
         LecturaPeliculas(archivo_categorias,lista_peliculas)
         LecturaTarjetas(archivo_tarjetas,lista_tarjetas) 
+        response = requests.get('http://localhost:5007/obtenerUsuarios')
+        usuarios_API = response.json()
+        for usuario_a in usuarios_API['usuario']:
+            nuevo_nombre=usuario_a['nombre']
+            nuevo_apellido=usuario_a['apellido']
+            nuevo_telefono=usuario_a['telefono']
+            nuevo_correo=usuario_a['correo']
+            nueva_contrasena=usuario_a['contrasena']
+            nuevo_rol=usuario_a['rol']
+            lista_usuarios.InsertarUsuario(nuevo_nombre,nuevo_apellido,nuevo_telefono,nuevo_correo,nueva_contrasena,nuevo_rol)
+        response = requests.get('http://localhost:5007/obtenerPeliculas')
+        peliculas_API = response.json()
+        for categoria in peliculas_API['categoria']:
+            nueva_categoria = categoria['nombre']
+
+            peliculas_a = categoria['peliculas']['pelicula']
+            for pelicula_a in peliculas_a:
+                nuevo_titulo = pelicula_a['titulo']
+                nuevo_director=pelicula_a['director']
+                nuevo_anio=pelicula_a['anio']
+                nueva_fecha=pelicula_a['fecha']
+                nueva_hora=pelicula_a['hora']
+                nueva_imagen=pelicula_a['imagen']
+                nuevo_precio=pelicula_a['precio']
+                lista_peliculas.InsertarPelicula(nuevo_titulo,nuevo_director,nuevo_anio,nueva_fecha,nueva_hora,nueva_categoria,nueva_imagen,nuevo_precio)
+        response = requests.get('http://localhost:5007/obtenerSalas')
+        salas_API = response.json()
+        
+        for sala_a in salas_API['cine']['salas']['sala']:
+            nuevo_numero=sala_a['numero']
+            nuevos_asientos=sala_a['asientos']
+            lista_salas.InsertarSala(nuevo_numero,nuevos_asientos)
+        response = requests.get('http://localhost:5007/obtenerTarjetas')
+        tarjetas_API = response.json()
+        for tarjeta_a in tarjetas_API['tarjeta']:
+            nuevo_tipo=tarjeta_a['tipo']
+            nuevo_numero_tarjeta=tarjeta_a['numero']
+            nuevo_titular=tarjeta_a['titular']
+            nueva_fecha_vencimiento=tarjeta_a['fecha_expiracion']
+            lista_tarjetas.InsertarTarjeta(nuevo_tipo,nuevo_numero_tarjeta,nuevo_titular,nueva_fecha_vencimiento)
     return render(request, 'usuarios/inicio.html', {'usuarios': lista_usuarios,'salas':lista_salas,'peliculas':lista_peliculas,'filtrados':lista_peliculas,'tarjetas':lista_tarjetas,'categorias':lista_categorias.DevolverAllCategorias()})
 
 def filtrar_img(request):

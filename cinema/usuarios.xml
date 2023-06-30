@@ -9,7 +9,7 @@
 	</usuario>
 	<usuario>
 		<rol>cliente</rol>
-		<nombre>yo</nombre>
+		<nombre>Jane</nombre>
 		<apellido>Smith</apellido>
 		<telefono>987654321</telefono>
 		<correo>jane.smith@example.com</correo>
