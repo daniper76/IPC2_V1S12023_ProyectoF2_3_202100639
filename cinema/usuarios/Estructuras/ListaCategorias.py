@@ -193,6 +193,7 @@ class ListaCategorias:
             aux=aux.siguiente
         return False
 
+
     def DevolverALLMovies(self):
         aux=self.primero
         cartelera=[]
