@@ -36,8 +36,7 @@ class ListaDobleCircular:
             aux=aux.siguiente
             if aux==self.primero:
                 break
-    
-    
+        
     def NuevaPelicula(self,titulo):
         aux=self.primero
         while aux is not None:
