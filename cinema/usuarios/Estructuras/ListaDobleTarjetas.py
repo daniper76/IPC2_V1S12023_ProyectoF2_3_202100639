@@ -120,7 +120,14 @@ class ListaDobleTarjetas:
                 archivo.write("\t</tarjeta>\n")
                 aux = aux.siguiente
             archivo.write("</tarjetas>")
-            archivo.close()      
+            archivo.close()
+
+    def DevolverObjetoTarjetaWeb(self,titular):
+        aux=self.primero
+        while aux is not None:
+            if aux.ObtenerTitular()==titular:
+                return aux
+            aux=aux.siguiente
 
 
 

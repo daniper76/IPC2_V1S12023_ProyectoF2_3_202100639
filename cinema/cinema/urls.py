@@ -16,13 +16,27 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from usuarios.views import cargar_xml,filtrar_img,login,menu_cliente,menu_admin
+from usuarios.views import cargar_xml,filtrar_img,login,menu_cliente,menu_admin,actualizar_usuario,eliminar_usuario,crear_usuario,crear_pelicula,eliminar_pelicula,actualizar_pelicula,crear_sala,actualizar_sala,eliminar_sala,crear_tarjeta,actualizar_tarjeta,eliminar_tarjeta,volver_admin,volver_login
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('inicio/', cargar_xml,name='cargar_xml'),
     path('inicio/cargar', filtrar_img,name='filtrar_img'),
     path('login/', login,name='login'),
-    path('cliente/', menu_cliente,name='menu_cliente'),
-    path('admin/', menu_admin,name='menu_admin')
+    path('comprador/', menu_cliente,name='menu_cliente'),
+    path('mero/', menu_admin,name='menu_admin'),
+    path('mero/actualizar/<str:correo>/', actualizar_usuario, name='actualizar_usuario'),
+    path('mero/eliminar/<str:correo>/', eliminar_usuario, name='eliminar_usuario'),
+    path('mero/crear/', crear_usuario, name='crear_usuario'),
+    path('mero/pelicula/crear/', crear_pelicula, name='crear_pelicula'),
+    path('mero/pelicula/eliminar/<str:titulo>/', eliminar_pelicula, name='eliminar_pelicula'),
+    path('mero/pelicula/actualizar/<str:titulo>/', actualizar_pelicula, name='actualizar_pelicula'),
+    path('mero/sala/crear/', crear_sala, name='crear_sala'),
+    path('mero/sala/actualizar/<str:numero>/', actualizar_sala, name='actualizar_sala'),
+    path('mero/sala/eliminar/<str:numero>/', eliminar_sala, name='eliminar_sala'),
+    path('mero/tarjeta/crear/', crear_tarjeta, name='crear_tarjeta'),
+    path('mero/tarjeta/actualizar/<str:titular>/', actualizar_tarjeta, name='actualizar_tarjeta'),
+    path('mero/tarjeta/eliminar/<str:titular>/', eliminar_tarjeta, name='eliminar_tarjeta'),
+    path('mero/volver/', volver_admin, name='volver_admin'),
+    path('mero/regresar/login/', volver_login, name='volver_login')
 ]

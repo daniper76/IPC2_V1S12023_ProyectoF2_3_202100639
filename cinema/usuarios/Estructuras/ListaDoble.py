@@ -113,5 +113,12 @@ class ListaDoble:
             print("\t*"+str(aux.ObtenerNumero()))
             aux=aux.siguiente
 
+    def DevolverObjetoSalaWeb(self,numero):
+        aux=self.primero
+        while aux is not None:
+            if aux.ObtenerNumero()==numero:
+                return aux
+            aux=aux.siguiente
+
 
 

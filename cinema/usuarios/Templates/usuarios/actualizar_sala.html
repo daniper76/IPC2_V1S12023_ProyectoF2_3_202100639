@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>Actualizar Sala</head>
+    <body>
+        <h1>Actualizar Sala</h1>
+
+        <form method="post">
+            {% csrf_token %}
+            <label for="numero">Numero</label>
+            <input type="text" name="numero" value="{{sala.numero}}" required>
+            <br>
+            <label for="asientos">Asientos</label>
+            <input type="text" name="asientos" value="{{sala.asientos}}" required>
+            <button type="submit">Actualizar</button>
+        </form>
+    </body>
+</html>
