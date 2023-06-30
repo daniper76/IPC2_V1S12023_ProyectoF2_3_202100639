@@ -123,7 +123,7 @@ class ListaSimple:
         aux=self.primero
         while aux is not None:
             if aux.ObtenerCorreo()==usuario:
-                aux.ObtenerFavoritos().append(pelicula)
+                aux.ObtenerFavoritos().InsertarPelicula(pelicula)
                 break
             aux=aux.siguiente
     
@@ -227,7 +227,19 @@ class ListaSimple:
             aux=aux.siguiente
         return None
 
-            
+    def DevolverHistorialUsuario(self,correo):
+        aux=self.primero
+        while aux is not None:
+            if aux.ObtenerCorreo()==correo:
+                return aux.ObtenerFacturas()
+            aux=aux.siguiente  
+
+    def DevolverFavoritoslUsuario(self,correo):
+        aux=self.primero
+        while aux is not None:
+            if aux.ObtenerCorreo()==correo:
+                return aux.ObtenerFavoritos()
+            aux=aux.siguiente      
 
             
 

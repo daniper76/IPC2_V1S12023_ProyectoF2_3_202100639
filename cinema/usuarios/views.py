@@ -7,6 +7,7 @@ from .Estructuras.ListaCategorias import ListaCategorias
 from .Estructuras.ListaPeliculas import ListaDobleCircularPeliculas
 from .Estructuras.ListaDobleTarjetas import ListaDobleTarjetas
 from .Estructuras.ListaUsuarioActual import LSUsuario
+from .Estructuras.Factura import Factura
 import requests
 
 # Create your views here.
@@ -275,9 +276,45 @@ def volver_login(request):
     return render(request, 'usuarios/login.html')
 
 
-
-
+def comprar_boletos(request):
+    if request.method == 'POST':
+        tipo_pagos=['credito','debito','efectivo']
+        return render(request, 'usuarios/comprar_boletos.html', {'peliculas':lista_peliculas,'salas':lista_salas,'pagos':tipo_pagos})
 
     
+def realizar_compra(request):
+    if request.method == 'POST':
+        nombre_factura = request.POST.get('nombre')
+        nit_factura = request.POST.get('nit')
+        direccion_factura=request.POST.get('direccion')
+        cantidad_boletos=request.POST.get('cantidad')
+        asientos_factura=request.POST.get('asientos')
+        pelicula_seleccionada = request.POST.get('pelicula')
+        sala_seleccionada = request.POST.get('sala')
+        pago_seleccionado = request.POST.get('pago')
+        monto_factura=int(cantidad_boletos)*int(lista_peliculas.DevolverPrecioPelicula(pelicula_seleccionada))
+        nueva_factura=Factura(nombre_factura,direccion_factura,nit_factura,str(monto_factura),cantidad_boletos,asientos_factura,sala_seleccionada,pelicula_seleccionada,pago_seleccionado)
+        lista_usuarios.GuardarFactura(lista_usuario_actual.DevolverUsuarioActual(),nueva_factura)
+        return render(request,'usuarios/menu_cliente.html',{'usuario_actual':lista_usuario_actual.DevolverUsuarioActual()})
 
+def ver_historial(request):
+    if request.method == 'POST':
+        return render(request,'usuarios/historial.html',{'facturas':lista_usuarios.DevolverHistorialUsuario(lista_usuario_actual.DevolverUsuarioActual())})
+    
+def regresar_menucliente(request):
+    if request.method == 'POST':
+        return render(request,'usuarios/menu_cliente.html',{'usuario_actual':lista_usuario_actual.DevolverUsuarioActual()})
+    
+def favoritos(request):
+    if request.method == 'POST':
+        return render(request,'usuarios/favoritos.html',{'peliculas':lista_peliculas})
 
+def guardar_favoritos(request):
+    if request.method == 'POST':
+        pelicula_seleccionada = request.POST.get('pelicula')
+        lista_usuarios.AgregarPeliculaFavorita(lista_usuario_actual.DevolverUsuarioActual(),lista_peliculas.DevolverObjetoPeliculaWeb(pelicula_seleccionada))
+        return render(request,'usuarios/menu_cliente.html',{'usuario_actual':lista_usuario_actual.DevolverUsuarioActual()})
+
+def ver_favoritos(request):
+    if request.method == 'POST':
+        return render(request,'usuarios/ver_favoritos.html',{'favoritos':lista_usuarios.DevolverFavoritoslUsuario(lista_usuario_actual.DevolverUsuarioActual())})
