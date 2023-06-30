@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Gestion Cine</title>
+    </head>
+    <body>
+        <h1 style="color: aqua;">Lista de Usuarios</h1>
+        <form method="POST" action="{% url 'volver_admin' %}">
+            {% csrf_token %}
+            <button type="submit">Menu Principal</button>
+        </form>
+        <a href="{% url 'crear_usuario' %}">Crear Usuario</a>
+        <table>
+            <thead>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Telefono</th>
+                <th>Correo</th>
+                <th>Contrasenia</th>
+                <th>Id</th>
+                <th>Rol</th>
+            </thead>
+            <tbody>
+                {% for usuario in usuarios %}
+                <tr>
+                    <td>{{ usuario.nombre }}</td>
+                    <td>{{ usuario.apellido }}</td>
+                    <td>{{ usuario.telefono }}</td>
+                    <td>{{ usuario.correo }}</td>
+                    <td>{{ usuario.contrasenia }}</td>
+                    <td>{{ usuario.id }}</td>
+                    <td>{{ usuario.rol }}</td>
+                    <td>
+                        <a href="{% url 'actualizar_usuario' usuario.correo %}">Actualizar</a>
+                        <a href="{% url 'eliminar_usuario' usuario.correo %}">Eliminar</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td>No existen registros</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h1>Lista de Peliculas</h1>
+        <a href="{% url 'crear_pelicula' %}">Crear Pelicula</a>
+        <table>
+            <thead>
+                <th>Titulo</th>
+                <th>Director</th>
+                <th>Anio</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Id</th>
+                <th>Categoria</th>
+            </thead>
+            <tbody>
+                {% for pelicula in peliculas %}
+                <tr>
+                    <td>{{ pelicula.titulo }}</td>
+                    <td>{{ pelicula.director }}</td>
+                    <td>{{ pelicula.anio }}</td>
+                    <td>{{ pelicula.fecha }}</td>
+                    <td>{{ pelicula.hora }}</td>
+                    <td>{{ pelicula.id }}</td>
+                    <td>{{ pelicula.categoria }}</td>
+                    <td>
+                        <a href="{% url 'actualizar_pelicula' pelicula.titulo %}">Actualizar</a>
+                        <a href="{% url 'eliminar_pelicula' pelicula.titulo %}">Eliminar</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td>No existen registros</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h1>Lista de Salas</h1>
+        <a href="{% url 'crear_sala' %}">Crear Sala</a>
+        <table>
+            <thead>
+                <th>Numero</th>
+                <th>Asiento</th>
+                <th>Id</th>
+            </thead>
+            <tbody>
+                {% for sala in salas %}
+                <tr>
+                    <td>{{ sala.numero }}</td>
+                    <td>{{ sala.asientos }}</td>
+                    <td>{{ sala.id }}</td>
+                    <td>
+                        <a href="{% url 'actualizar_sala' sala.numero %}">Actualizar</a>
+                        <a href="{% url 'eliminar_sala' sala.numero %}">Eliminar</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td>No existen registros</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h1>Lista de Tarjetas</h1>
+        <a href="{% url 'crear_tarjeta' %}">Crear Tarjeta</a>
+        <table>
+            <thead>
+                <th>Tipo</th>
+                <th>Numero</th>
+                <th>Titular</th>
+                <th>Fecha Vencimiento</th>
+            </thead>
+            <tbody>
+                {% for tarjeta in tarjetas %}
+                <tr>
+                    <td>{{ tarjeta.tipo }}</td>
+                    <td>{{ tarjeta.numero }}</td>
+                    <td>{{ tarjeta.titular }}</td>
+                    <td>{{ tarjeta.fecha }}</td>
+                    <td>
+                        <a href="{% url 'actualizar_tarjeta' tarjeta.titular %}">Actualizar</a>
+                        <a href="{% url 'eliminar_tarjeta' tarjeta.titular %}">Eliminar</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td>No existen registros</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>

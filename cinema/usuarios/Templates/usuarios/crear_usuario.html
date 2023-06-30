@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>Actualizar Usuario</head>
+    <body>
+        <h1>Actualizar Usuario</h1>
+
+        <form method="post">
+            {% csrf_token %}
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" required>
+            <br>
+            <label for="correo">Correo</label>
+            <input type="text" name="correo" required>
+            <br>
+            <label for="apellido">Apelldio</label>
+            <input type="text" name="apellido" required>
+            <br>
+            <label for="telefono">Telefono</label>
+            <input type="text" name="telefono" required>
+            <br>
+            <label for="rol">Rol</label>
+            <input type="text" name="rol" required>
+            <br>
+            <label for="contrasenia">Contrasenia</label>
+            <input type="text" name="contrasenia" required>
+            <button type="submit">Actualizar</button>
+        </form>
+    </body>
+</html>

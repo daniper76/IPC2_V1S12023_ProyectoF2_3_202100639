@@ -75,6 +75,13 @@ class ListaSimple:
                 aux.contrasenia=contrasenia
             aux=aux.siguiente
 
+    def ModificarRol(self,correo,rol):
+        aux=self.primero
+        while aux is not None:
+            if aux.ObtenerCorreo()==correo:
+                aux.rol=rol
+            aux=aux.siguiente
+
     def NuevoUsuario(self,correo):
         aux=self.primero
         while aux is not None:
@@ -211,6 +218,14 @@ class ListaSimple:
 
     def __iter__(self):
         return iter(self.loop())
+    
+    def DevolverObjetoUsuario(self,correo):
+        aux=self.primero
+        while aux is not None:
+            if aux.ObtenerCorreo()==correo:
+                return aux
+            aux=aux.siguiente
+        return None
 
             
 

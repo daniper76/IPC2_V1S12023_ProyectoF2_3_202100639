@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>Actualizar Usuario</head>
+    <body>
+        <h1>Actualizar Usuario</h1>
+
+        <form method="post">
+            {% csrf_token %}
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" value="{{usuario.nombre}}" required>
+            <br>
+            <label for="correo">Correo</label>
+            <input type="text" name="correo" value="{{usuario.correo}}" required>
+            <br>
+            <label for="apellido">Apelldio</label>
+            <input type="text" name="apellido" value="{{usuario.apellido}}" required>
+            <br>
+            <label for="telefono">Telefono</label>
+            <input type="text" name="telefono" value="{{usuario.telefono}}" required>
+            <br>
+            <label for="rol">Rol</label>
+            <input type="text" name="rol" value="{{usuario.rol}}" required>
+            <br>
+            <label for="contrasenia">Contrasenia</label>
+            <input type="text" name="contrasenia" value="{{usuario.contrasenia}}" required>
+            <button type="submit">Actualizar</button>
+        </form>
+    </body>
+</html>

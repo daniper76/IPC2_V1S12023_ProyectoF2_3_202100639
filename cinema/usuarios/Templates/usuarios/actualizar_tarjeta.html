@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>Actualizar Tarjeta</head>
+    <body>
+        <h1>Actualizar Tarjeta</h1>
+
+        <form method="post">
+            {% csrf_token %}
+            <label for="tipo">Tipo</label>
+            <input type="text" name="tipo" value="{{tarjeta.tipo}}" required>
+            <br>
+            <label for="numero">Numero</label>
+            <input type="text" name="numero" value="{{tarjeta.numero}}" required>
+            <br>
+            <label for="titular">Titular</label>
+            <input type="text" name="titular" value="{{tarjeta.titular}}" required>
+            <br>
+            <label for="fecha">Fecha</label>
+            <input type="text" name="fecha" value="{{tarjeta.fecha}}" required>
+            <button type="submit">Actualizar</button>
+        </form>
+    </body>
+</html>

@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
-    <head>Inicio de sesión</head>
+    <head>
+        {% load static %}
+        <title>Login</title>
+        <link rel="stylesheet" href="{% static 'css/fondo.css' %}" >
+    </head>
     <body>
         <h1>Inicio de sesión</h1>
 
-        <form method="post">
+        <form method="POST" action="{% url 'login' %}">
             {% csrf_token %}
             <label for="username">Usuario</label>
             <input type="text" name="username" required>
