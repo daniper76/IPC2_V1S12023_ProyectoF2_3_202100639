@@ -64,6 +64,7 @@ def cargar_xml(request):
                 lista_peliculas.InsertarPelicula(nuevo_titulo,nuevo_director,nuevo_anio,nueva_fecha,nueva_hora,nueva_categoria,nueva_imagen,nuevo_precio)
         response = requests.get('http://localhost:5007/obtenerSalas')
         salas_API = response.json()
+        
         for sala_a in salas_API['cine']['salas']['sala']:
             nuevo_numero=sala_a['numero']
             nuevos_asientos=sala_a['asientos']
