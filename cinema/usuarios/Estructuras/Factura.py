@@ -1,6 +1,6 @@
 class Factura:
     id=1
-    def __init__(self,nombre,direccion,nit,monto,cantidad_boletos,asientos: list,sala):
+    def __init__(self,nombre,direccion,nit,monto,cantidad_boletos,asientos,sala,pelicula,pago):
         self.nombre=nombre
         self.direccion=direccion
         self.nit=nit
@@ -9,6 +9,8 @@ class Factura:
         self.asientos=asientos
         self.sala=sala
         self.boleto="#USACIPC2_202100639_"+str(Factura.id)
+        self.pelicula=pelicula
+        self.pago=pago
         self.id=Factura.id
         Factura.id+=1
     
@@ -38,5 +40,11 @@ class Factura:
     
     def ObtenerNombreBoleto(self):
         return self.boleto
+    
+    def ObtenerPelicula(self):
+        return self.pelicula
+    
+    def ObtenerPago(self):
+        return self.pago
 
     

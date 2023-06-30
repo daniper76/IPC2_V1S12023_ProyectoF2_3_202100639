@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Historial</title>
+    </head>
+    <body>
+        <form method="POST" action="{% url 'regresar_menucliente' %}">
+            {% csrf_token %}
+            <button type="submit">Regresar Menu</button>
+        </form>
+        <h1>Favoritos</h1>
+        {% for favorito in favoritos %}
+        <table>
+            <thead>
+                <th>Titulo</th>
+                <th>Director</th>
+                <th>Anio</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Id</th>
+                <th>Categoria</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ favorito.titulo }}</td>
+                    <td>{{ favorito.director }}</td>
+                    <td>{{ favorito.anio }}</td>
+                    <td>{{ favorito.fecha }}</td>
+                    <td>{{ favorito.hora }}</td>
+                    <td>{{ favorito.id }}</td>
+                    <td>{{ favorito.categoria }}</td>
+                </tr>    
+            </tbody>
+        </table>
+        {% empty %}
+            <table>
+                <tr>
+                    <td>No existen registros</td>
+                </tr>
+            </table>
+        {% endfor %}
+    </body>
+</html>

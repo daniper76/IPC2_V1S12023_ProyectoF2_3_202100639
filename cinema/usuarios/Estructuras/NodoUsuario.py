@@ -1,3 +1,4 @@
+from .LDCFavoritos import ListaDobleCircularPeliculasFavoritas
 class NodoUsuario:
     id=1
     
@@ -10,7 +11,7 @@ class NodoUsuario:
         self.siguiente=None
         self.id=NodoUsuario.id
         self.rol=rol
-        self.favoritos=[]
+        self.favoritos=ListaDobleCircularPeliculasFavoritas()
         self.facturas=[]
         NodoUsuario.id+=1
     
