@@ -5,5 +5,14 @@
     </head>
     <body>
         <h1>Menu Administrador</h1>
+        <h2>{{usuario_actual}}</h2>
+        <form method="POST" action="{% url 'menu_admin' %}">
+            {% csrf_token %}
+            <button type="submit">Gestionar Cine</button>
+        </form>
+        <form method="POST" action="{% url 'volver_login' %}">
+            {% csrf_token %}
+            <button type="submit">Volver Login</button>
+        </form>
     </body>   
 </html>

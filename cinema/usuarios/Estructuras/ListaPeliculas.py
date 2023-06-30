@@ -128,6 +128,25 @@ class ListaDobleCircularPeliculas:
             aux=aux.siguiente
             if aux==self.primero:
                 break
+    def ModificarImagen(self,titulo,imagen):
+        aux=self.primero
+
+        while aux is not None:
+            if aux.ObtenerTitulo()==titulo:
+                aux.imagen=imagen
+            aux=aux.siguiente
+            if aux==self.primero:
+                break
+
+    def ModificarPrecio(self,titulo,precio):
+        aux=self.primero
+
+        while aux is not None:
+            if aux.ObtenerTitulo()==titulo:
+                aux.precio=precio
+            aux=aux.siguiente
+            if aux==self.primero:
+                break
 
     
     def MostrarDetallePelicula(self,titulo):
@@ -216,6 +235,15 @@ class ListaDobleCircularPeliculas:
                 if aux==self.primero:
                     break
         return lista
+    
+    def DevolverObjetoPeliculaWeb(self,titulo):
+        aux=self.primero
+        while True:
+            if aux.ObtenerTitulo()==titulo:
+                return aux
+            aux=aux.siguiente
+            if aux==self.primero:
+                break
 
             
 

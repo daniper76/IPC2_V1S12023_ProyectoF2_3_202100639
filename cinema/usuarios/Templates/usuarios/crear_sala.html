@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>Crear Sala</head>
+    <body>
+        <h1>Crear Sala</h1>
+
+        <form method="post">
+            {% csrf_token %}
+            <label for="numero">Número</label>
+            <input type="text" name="numero" required>
+            <br>
+            <label for="asientos">Asientos</label>
+            <input type="text" name="asientos" required>
+            <button type="submit">Actualizar</button>
+        </form>
+    </body>
+</html>
