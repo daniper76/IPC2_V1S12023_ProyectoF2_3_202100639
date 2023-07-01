@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Historial</title>
+        {% load static %}
+        <title>Peliculas Favoritas</title>
+        <link rel="stylesheet" href="{% static 'css/tabla.css' %}" >
     </head>
-    <body>
+    <body  style="background-color: black;">
         <form method="POST" action="{% url 'regresar_menucliente' %}">
             {% csrf_token %}
-            <button type="submit">Regresar Menu</button>
+            <button style="color: black; font-size: 20px; padding: 10px 20px; width: 200px;height: 50px;border-radius: 10px;background-color: bisque;" type="submit">Regresar Menu</button>
         </form>
         <h1>Favoritos</h1>
         {% for favorito in favoritos %}

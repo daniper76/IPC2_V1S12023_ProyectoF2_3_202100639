@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from usuarios.views import cargar_xml,filtrar_img,login,menu_cliente,menu_admin,actualizar_usuario,eliminar_usuario,crear_usuario,crear_pelicula,eliminar_pelicula,actualizar_pelicula,crear_sala,actualizar_sala,eliminar_sala,crear_tarjeta,actualizar_tarjeta,eliminar_tarjeta,volver_admin,volver_login,comprar_boletos,realizar_compra,ver_historial,regresar_menucliente,favoritos,guardar_favoritos,ver_favoritos
+from usuarios.views import cargar_xml,filtrar_img,login,menu_cliente,menu_admin,actualizar_usuario,eliminar_usuario,crear_usuario,crear_pelicula,eliminar_pelicula,actualizar_pelicula,crear_sala,actualizar_sala,eliminar_sala,crear_tarjeta,actualizar_tarjeta,eliminar_tarjeta,volver_admin,volver_login,comprar_boletos,realizar_compra,ver_historial,regresar_menucliente,favoritos,guardar_favoritos,ver_favoritos,actualizar_xml
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -45,5 +45,6 @@ urlpatterns = [
     path('clienteu/regresarmenu/',regresar_menucliente,name='regresar_menucliente'),
     path('clienteu/favoritos/',favoritos,name='favoritos'),
     path('clienteu/favoritos/guardar/',guardar_favoritos,name='guardar_favoritos'),
-    path('clienteu/favoritos/ver/',ver_favoritos,name='ver_favoritos')
+    path('clienteu/favoritos/ver/',ver_favoritos,name='ver_favoritos'),
+    path('mero/actualizarXML/',actualizar_xml,name='actualizar_xml')
 ]

@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
+        {% load static %}
         <title>Historial</title>
+        <link rel="stylesheet" href="{% static 'css/tabla.css' %}" >
+        <link rel="stylesheet" href="{% static 'css/divCarrusel.css' %}" >
     </head>
-    <body>
+    <body style="background-color: black;">
         <form method="POST" action="{% url 'regresar_menucliente' %}">
             {% csrf_token %}
             <button type="submit">Regresar Menu</button>
         </form>
-        <h1>Historial</h1>
+        <h1 style="color: gold;">Historial</h1>
         {% for factura in facturas %}
         <table>
             <thead>
