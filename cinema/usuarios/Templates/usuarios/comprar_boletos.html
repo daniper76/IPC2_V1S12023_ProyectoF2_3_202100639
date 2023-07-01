@@ -1,37 +1,39 @@
 <!DOCTYPE html>
 <html>
     <head>Comprar Boletos</head>
-    <body>
+    <body style="background-color: burlywood;">
         <h1>Comprar Boletos</h1>
 
         <form method="POST" action="{% url 'realizar_compra' %}">
             {% csrf_token %}
-
+            <h2 style="color: blue; font-size: x-large; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Cartelara</h2>
             {% for pelicula in peliculas %}
                 <input type="radio" name="pelicula" value="{{ pelicula.titulo }}">{{ pelicula.titulo }}<br>
             {% endfor %}
-                
+            <br>
+            <h2 style="color: blue; font-size: x-large; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Salas Disponibles</h2>    
             {% for sala in salas %}
                 <input type="radio" name="sala" value="{{ sala.numero }}">{{ sala.numero }}<br>
             {% endfor %}
-
+            <br>
+            <h2 style="color: blue; font-size: x-large; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Forma de Pago</h2>
             {% for pago in pagos %}
                 <input type="radio" name="pago" value="{{ pago }}">{{ pago }}<br>
             {% endfor %}
-            
-            <label for="nombre">nombre</label>
+            <br>
+            <label style="color: black; font-size: x-large; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" for="nombre">Nombre</label>
             <input type="text" name="nombre" required>
             <br>
-            <label for="nit">nit</label>
+            <label style="color: black; font-size: x-large; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" for="nit">Nit</label>
             <input type="text" name="nit" required>
             <br>
-            <label for="direccion">Direccion</label>
+            <label style="color: black; font-size: x-large; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" for="direccion">Direccion</label>
             <input type="text" name="direccion" required>
             <br>
-            <label for="cantidad">Cantidad de Boletos</label>
+            <label style="color: black; font-size: x-large; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" for="cantidad">Cantidad de Boletos</label>
             <input type="text" name="cantidad" required>
             <br>
-            <label for="asientos">Numero de Asientos</label>
+            <label style="color: black; font-size: x-large; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" for="asientos">Numero de Asientos</label>
             <input type="text" name="asientos" required>
             <button type="submit">Comprar</button>
         </form>

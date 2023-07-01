@@ -1,6 +1,6 @@
 class Factura:
     id=1
-    def __init__(self,nombre,direccion,nit,monto,cantidad_boletos,asientos,sala,pelicula,pago):
+    def __init__(self,nombre,direccion,nit,monto,cantidad_boletos,asientos,sala,pelicula,pago,estado='activo'):
         self.nombre=nombre
         self.direccion=direccion
         self.nit=nit
@@ -11,6 +11,7 @@ class Factura:
         self.boleto="#USACIPC2_202100639_"+str(Factura.id)
         self.pelicula=pelicula
         self.pago=pago
+        self.estado=estado
         self.id=Factura.id
         Factura.id+=1
     

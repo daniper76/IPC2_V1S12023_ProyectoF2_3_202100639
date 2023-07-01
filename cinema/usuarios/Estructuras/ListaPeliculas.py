@@ -195,19 +195,32 @@ class ListaDobleCircularPeliculas:
 
     def EscribirXML(self):
         aux=self.primero
-        texto_peli="\t\t<peliculas>\n"
+        archivo = open("categorias.xml", "w")
+        archivo.write("<categorias>\n")
         while True:
-            texto_peli=texto_peli+"\t\t\t<pelicula>\n"
-            texto_peli=texto_peli+"\t\t\t\t<titulo>"+str(aux.ObtenerTitulo())+"</titulo>\n"
-            texto_peli=texto_peli+"\t\t\t\t<director>"+str(aux.ObtenerDirector())+"</director>\n"
-            texto_peli=texto_peli+"\t\t\t\t<anio>"+str(aux.ObtenerAnio())+"</anio>\n"
-            texto_peli=texto_peli+"\t\t\t\t<fecha>"+str(aux.ObtenerFecha())+"</fecha>\n"
-            texto_peli=texto_peli+"\t\t\t\t<hora>"+str(aux.ObtenerHora())+"</hora>\n"
-            texto_peli=texto_peli+"\t\t\t</pelicula>\n"
-            aux=aux.siguiente
+            archivo.write("\t<categoria>\n")
+            categoria_actual=aux.ObtenerCategoria()
+            archivo.write("\t\t<nombre>"+str(aux.ObtenerCategoria())+"</nombre>\n")
+            archivo.write("\t\t<peliculas>\n")
+            while True:
+                archivo.write("\t\t\t<pelicula>\n")
+                archivo.write("\t\t\t\t<titulo>"+str(aux.ObtenerTitulo())+"</titulo>\n")
+                archivo.write("\t\t\t\t<director>"+str(aux.ObtenerDirector())+"</director>\n")
+                archivo.write("\t\t\t\t<anio>"+str(aux.ObtenerAnio())+"</anio>\n")
+                archivo.write("\t\t\t\t<fecha>"+str(aux.ObtenerFecha())+"</fecha>\n")
+                archivo.write("\t\t\t\t<hora>"+str(aux.ObtenerHora())+"</hora>\n")
+                archivo.write("\t\t\t\t<imagen>"+str(aux.ObtenerImagen())+"</imagen>\n")
+                archivo.write("\t\t\t\t<precio>"+str(aux.ObtenerPrecio())+"</precio>\n")
+                archivo.write("\t\t\t</pelicula>\n")
+                aux=aux.siguiente
+                if aux.ObtenerCategoria()!=categoria_actual:
+                    archivo.write("\t\t</peliculas>\n")
+                    archivo.write("\t</categoria>\n")
+                    break
             if aux==self.primero:
-                texto_peli=texto_peli+"\t\t</peliculas>\n"
-                return texto_peli
+                archivo.write("</categorias>\n")
+                break
+        archivo.close()                 
 
     def loop(self):
         aux = self.primero

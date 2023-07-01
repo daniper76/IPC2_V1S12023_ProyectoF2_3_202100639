@@ -123,7 +123,7 @@ class ListaSimple:
         aux=self.primero
         while aux is not None:
             if aux.ObtenerCorreo()==usuario:
-                aux.ObtenerFavoritos().InsertarPelicula(pelicula)
+                aux.ObtenerFavoritos().append(pelicula)
                 break
             aux=aux.siguiente
     
@@ -182,7 +182,7 @@ class ListaSimple:
         if self.primero is None:
             print("La lista esta vacia")
         else:
-            archivo = open("Usuarios.xml", "w")
+            archivo = open("usuarios.xml", "w")
             archivo.write("<usuarios>\n")
 
             aux = self.primero
