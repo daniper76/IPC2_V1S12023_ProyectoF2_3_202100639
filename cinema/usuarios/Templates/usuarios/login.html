@@ -6,9 +6,9 @@
         <link rel="stylesheet" href="{% static 'css/fondo.css' %}" >
     </head>
     <body>
-        <h1>Inicio de sesión</h1>
+        <h1 style="color: gold;size: 200px;left: 50%;background-color: black;">Inicio de sesión</h1>
 
-        <form method="POST" action="{% url 'login' %}">
+        <form method="POST" action="{% url 'login' %}" style="display: flex;flex-direction: column;align-items: center;justify-content: center;width: 400px;margin-top: 200px;">
             {% csrf_token %}
             <label for="username">Usuario</label>
             <input type="text" name="username" required>

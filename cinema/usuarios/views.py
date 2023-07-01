@@ -318,3 +318,11 @@ def guardar_favoritos(request):
 def ver_favoritos(request):
     if request.method == 'POST':
         return render(request,'usuarios/ver_favoritos.html',{'favoritos':lista_usuarios.DevolverFavoritoslUsuario(lista_usuario_actual.DevolverUsuarioActual())})
+
+def actualizar_xml(request):
+    if request.method=='POST':
+        lista_usuarios.escribirXML()
+        lista_tarjetas.escribirXML()
+        lista_salas.escribirXML()
+        lista_peliculas.EscribirXML()
+        return render(request,'usuarios/gestionar_cine.html',{'usuarios': lista_usuarios,'salas':lista_salas,'peliculas':lista_peliculas,'tarjetas':lista_tarjetas})

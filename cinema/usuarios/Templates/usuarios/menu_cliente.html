@@ -3,28 +3,28 @@
     <head>
         <title>Menu Cliente</title>
     </head>
-    <body>
-        <h1>Menu Cliente</h1>
-        <h2>{{usuario_actual}}</h2>
+    <body style="background-color: black;">
+        <h1 style="color: gold;">Menu Cliente</h1>
+        <h2 style="color: silver;">{{usuario_actual}}</h2>
         <form method="POST" action="{% url 'comprar_boletos' %}">
             {% csrf_token %}
-            <button type="submit">Comprar Boletos</button>
+            <button style="color: black; font-size: 20px; padding: 10px 20px; width: 200px;height: 50px;border-radius: 10px;background-color: bisque;" type="submit">Comprar Boletos</button>
         </form>
         <form method="POST" action="{% url 'ver_historial' %}">
             {% csrf_token %}
-            <button type="submit">Ver ver_historial</button>
+            <button style="color: black; font-size: 20px; padding: 10px 20px; width: 200px;height: 50px;border-radius: 10px;background-color: bisque;" type="submit">Ver ver_historial</button>
         </form>
         <form method="POST" action="{% url 'favoritos' %}">
             {% csrf_token %}
-            <button type="submit">Favoritos</button>
+            <button style="color: black; font-size: 20px; padding: 10px 20px; width: 200px;height: 50px;border-radius: 10px;background-color: bisque;" type="submit">Favoritos</button>
         </form>
         <form method="POST" action="{% url 'ver_favoritos' %}">
             {% csrf_token %}
-            <button type="submit">Ver Favoritos</button>
+            <button style="color: black; font-size: 20px; padding: 10px 20px; width: 200px;height: 50px;border-radius: 10px;background-color: bisque;" type="submit">Ver Favoritos</button>
         </form>
         <form method="POST" action="{% url 'volver_login' %}">
             {% csrf_token %}
-            <button type="submit">Volver Login</button>
+            <button style="color: black; font-size: 20px; padding: 10px 20px; width: 200px;height: 50px;border-radius: 10px;background-color: bisque;" type="submit">Volver Login</button>
         </form>
     </body>   
 </html>

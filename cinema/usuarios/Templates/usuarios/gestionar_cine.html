@@ -1,15 +1,24 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Gestion Cine</title>
+        {% load static %}
+        <title>Gestionar Cine</title>
+        <link rel="stylesheet" href="{% static 'css/tabla.css' %}" >
     </head>
     <body>
-        <h1 style="color: aqua;">Lista de Usuarios</h1>
+        
         <form method="POST" action="{% url 'volver_admin' %}">
             {% csrf_token %}
-            <button type="submit">Menu Principal</button>
+            <button style="color: black; font-size: 20px; padding: 10px 20px; width: 200px;height: 50px;border-radius: 10px;background-color: bisque;" type="submit">Menu Principal</button>
         </form>
-        <a href="{% url 'crear_usuario' %}">Crear Usuario</a>
+        <form method="POST" action="{% url 'actualizar_xml' %}">
+            {% csrf_token %}
+            <button style="color: black; font-size: 20px; padding: 10px 20px; width: 200px;height: 50px;border-radius: 10px;background-color: bisque;" type="submit">Actualizar XML</button>
+        </form>
+        <br>
+        <h1 style="color: aqua;">Lista de Usuarios</h1>
+        <br>
+        <a style="font-size: x-large; color: black;" href="{% url 'crear_usuario' %}">Crear Usuario</a>
         <table>
             <thead>
                 <th>Nombre</th>
@@ -31,8 +40,8 @@
                     <td>{{ usuario.id }}</td>
                     <td>{{ usuario.rol }}</td>
                     <td>
-                        <a href="{% url 'actualizar_usuario' usuario.correo %}">Actualizar</a>
-                        <a href="{% url 'eliminar_usuario' usuario.correo %}">Eliminar</a>
+                        <a style="font-size: x-large; color: black;" href="{% url 'actualizar_usuario' usuario.correo %}">Actualizar</a>
+                        <a style="font-size: x-large; color: black;" href="{% url 'eliminar_usuario' usuario.correo %}">Eliminar</a>
                     </td>
                 </tr>
                 {% empty %}
@@ -44,7 +53,7 @@
         </table>
 
         <h1>Lista de Peliculas</h1>
-        <a href="{% url 'crear_pelicula' %}">Crear Pelicula</a>
+        <a style="font-size: x-large; color: black;" href="{% url 'crear_pelicula' %}">Crear Pelicula</a>
         <table>
             <thead>
                 <th>Titulo</th>
@@ -66,8 +75,8 @@
                     <td>{{ pelicula.id }}</td>
                     <td>{{ pelicula.categoria }}</td>
                     <td>
-                        <a href="{% url 'actualizar_pelicula' pelicula.titulo %}">Actualizar</a>
-                        <a href="{% url 'eliminar_pelicula' pelicula.titulo %}">Eliminar</a>
+                        <a style="font-size: x-large; color: black;" href="{% url 'actualizar_pelicula' pelicula.titulo %}">Actualizar</a>
+                        <a style="font-size: x-large; color: black;" href="{% url 'eliminar_pelicula' pelicula.titulo %}">Eliminar</a>
                     </td>
                 </tr>
                 {% empty %}
@@ -79,7 +88,7 @@
         </table>
 
         <h1>Lista de Salas</h1>
-        <a href="{% url 'crear_sala' %}">Crear Sala</a>
+        <a style="font-size: x-large; color: black;" href="{% url 'crear_sala' %}">Crear Sala</a>
         <table>
             <thead>
                 <th>Numero</th>
@@ -93,8 +102,8 @@
                     <td>{{ sala.asientos }}</td>
                     <td>{{ sala.id }}</td>
                     <td>
-                        <a href="{% url 'actualizar_sala' sala.numero %}">Actualizar</a>
-                        <a href="{% url 'eliminar_sala' sala.numero %}">Eliminar</a>
+                        <a style="font-size: x-large; color: black;" href="{% url 'actualizar_sala' sala.numero %}">Actualizar</a>
+                        <a style="font-size: x-large; color: black;" href="{% url 'eliminar_sala' sala.numero %}">Eliminar</a>
                     </td>
                 </tr>
                 {% empty %}
@@ -106,7 +115,7 @@
         </table>
 
         <h1>Lista de Tarjetas</h1>
-        <a href="{% url 'crear_tarjeta' %}">Crear Tarjeta</a>
+        <a style="font-size: x-large; color: black;" href="{% url 'crear_tarjeta' %}">Crear Tarjeta</a>
         <table>
             <thead>
                 <th>Tipo</th>
@@ -122,8 +131,8 @@
                     <td>{{ tarjeta.titular }}</td>
                     <td>{{ tarjeta.fecha }}</td>
                     <td>
-                        <a href="{% url 'actualizar_tarjeta' tarjeta.titular %}">Actualizar</a>
-                        <a href="{% url 'eliminar_tarjeta' tarjeta.titular %}">Eliminar</a>
+                        <a style="font-size: x-large; color: black;" href="{% url 'actualizar_tarjeta' tarjeta.titular %}">Actualizar</a>
+                        <a style="font-size: x-large; color: black;" href="{% url 'eliminar_tarjeta' tarjeta.titular %}">Eliminar</a>
                     </td>
                 </tr>
                 {% empty %}

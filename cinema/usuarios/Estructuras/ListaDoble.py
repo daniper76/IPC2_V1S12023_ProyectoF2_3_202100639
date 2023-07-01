@@ -89,7 +89,7 @@ class ListaDoble:
         if self.primero is None:
             print("La lista esta vacia")
         else:
-            archivo = open("Salas.xml", "w")
+            archivo = open("salas.xml", "w")
             archivo.write("<cines>\n")
             archivo.write("\t<cine>\n")
             archivo.write("\t\t<salas>\n")

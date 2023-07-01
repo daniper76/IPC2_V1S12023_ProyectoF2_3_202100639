@@ -11,7 +11,7 @@ class NodoUsuario:
         self.siguiente=None
         self.id=NodoUsuario.id
         self.rol=rol
-        self.favoritos=ListaDobleCircularPeliculasFavoritas()
+        self.favoritos=[]
         self.facturas=[]
         NodoUsuario.id+=1
     
